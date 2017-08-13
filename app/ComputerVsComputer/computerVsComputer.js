@@ -13,20 +13,20 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
     $scope.choises = [];
     $scope.message = '';
 
-    $scope.actions = [
-      {
-        icon: '/components/img/paper.png',
-        name: 'Paper'
-      },
-      {
-        icon: '/components/img/rock.png',
-        name: 'Rock'
-      },
-      {
-        icon: '/components/img/scissors.png',
-        name: 'Scissors'
-      }
-    ]
+  $scope.actions = [
+    {
+      icon: 'components/img/paper.png',
+      name: 'Paper'
+    },
+    {
+      icon: 'components/img/rock.png',
+      name: 'Rock'
+    },
+    {
+      icon: 'components/img/scissors.png',
+      name: 'Scissors'
+    }
+  ]
 
   $interval(function(){
     $scope.randomChoice1 = Math.floor((Math.random()*$scope.actions.length));
