@@ -17,7 +17,6 @@
             <div ng-repeat="action in actions" class="choice-card">
                 <md-button ng-click='compare(action,actions[randomChoice])' class="game-card">
                     <img ng-src="{{action.icon}}" alt="{{action.name}}">
-                    <div>{{action.name}}</div>
                 </md-button>
             </div>
         </div>
@@ -25,7 +24,6 @@
         <h2>Computer choise</h2>
         <md-button class="game-card">
             <img ng-src={{actions[randomChoice].icon}} alt={{actions[randomChoice].name}}>
-            <div>{{actions[randomChoice].name}}</div>
         </md-button>
     </div>
     <!--my choice-->
@@ -34,14 +32,12 @@
             <h2>Your choice</h2>
             <md-button class="game-card">
                 <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
-                <div>{{choises[0].name}}</div>
             </md-button>
         </div>
         <div>
             <h2>Computer choise</h2>
             <md-button ng-if="choises.length!==0" class="game-card">
-                <img ng-src={{choises[1].icon}} alt=src={{choises[1].name}}>
-                <div>{{choises[1].name}}</div>
+                <img ng-src={{choises[1].icon}} alt={{choises[1].name}}>
             </md-button>
         </div>
     </div>
