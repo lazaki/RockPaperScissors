@@ -3,7 +3,7 @@
 angular.module('RockPaperScissors.startGameCtrl', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/startGame', {
+  $routeProvider.when('/StartGame', {
     templateUrl: 'startGame/startGame.html',
     controller: 'startGameCtrl'
   });

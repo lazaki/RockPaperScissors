@@ -10,7 +10,7 @@ angular.module('RockPaperScissors', [
   'RockPaperScissors.version'
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-    $routeProvider.otherwise({ redirectTo: '/startGame' });
+    $routeProvider.otherwise({ redirectTo: '/StartGame' });
   }]).factory('saveResult', [function () {
     var result = [];
     return function (res) {
