@@ -22,15 +22,15 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
 
   $scope.actions = [
     {
-      icon: 'RockPaperScissors/app/components/img/paper.png',
+      icon: '/components/img/paper.png',
       name: 'Paper'
     },
     {
-      icon: 'RockPaperScissors/app/components/img/rock.png',
+      icon: '/components/img/rock.png',
       name: 'Rock'
     },
     {
-      icon: 'RockPaperScissors/app/components/img/scissors.png',
+      icon: '/components/img/scissors.png',
       name: 'Scissors'
     }
   ]
