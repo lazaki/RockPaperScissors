@@ -3,12 +3,11 @@
 // Declare app level module which depends on views, and components
 angular.module('RockPaperScissors', [
   'ngRoute',
-  'RockPaperScissors.view1',
+  'ngMaterial',
+  'RockPaperScissors.startGame',
   'RockPaperScissors.view2',
   'RockPaperScissors.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/startGame'});
 }]);
