@@ -1,22 +1,21 @@
-#`Rock, Paper, Scissors` — Waste an hour having fun 
+# `Rock, Paper, Scissors` — Waste an hour having fun 
 
 As a frequent games player I would like to play rock, paper, scissors so that I can waste an hour of my day having fun.
 
 
-#Acceptance criteria
+# Acceptance criteria
 I can play Player Vs Computer
 I can play Computer Vs Computer
 I can play a different game each time
 Game stores and displays current score. Score restarts once user restarts/ends the game
-#`User Story Back`
-
+# `User Story Back`
 
 #Technical constraints:
-It does not need to have a flashy GUI - it can be a really simple page
-Use one of the two popular JS frameworks for implementation: Angular1 
-Focus on Javascript code quality, best practices and design patterns (Model and Controller parts of MVC concept). Styling of frontend page is not of a big importance (it can be a really simple page) 
+  It does not need to have a flashy GUI - it can be a really simple page
+  Use one of the two popular JS frameworks for implementation: Angular1 
+  Focus on Javascript code quality, best practices and design patterns (Model and Controller parts of MVC concept). Styling of frontend page is not of a big importance (it can be a really simple page) 
 
-In case you do not know the game: https://en.wikipedia.org/wiki/Rock-paper-scissors
+  In case you do not know the game: https://en.wikipedia.org/wiki/Rock-paper-scissors
 
 #Guidance
 
