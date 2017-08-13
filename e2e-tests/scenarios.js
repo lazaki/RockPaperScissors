@@ -26,14 +26,14 @@ describe('my app', function() {
   });
 
 
-  describe('playGame', function() {
+  describe('PlayerVsComputer', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/playGame');
+      browser.get('index.html#!/PlayerVsComputer');
     });
 
 
-    it('should render playGame when user navigates to /playGame', function() {
+    it('should render PlayerVsComputer when user navigates to /PlayerVsComputer', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
         toMatch(/partial for view 2/);
     });

@@ -1,45 +1,44 @@
 'use strict';
 
-angular.module('RockPaperScissors.playGameCtrl', ['ngRoute'])
+angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/playGame', {
-    templateUrl: 'playGame/playGame.html',
-    controller: 'playGameCtrl'
-  });
-}])
+  .config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/ComputerVsComputer', {
+      templateUrl: 'ComputerVsComputer/computerVsComputer.html',
+      controller: 'computerVsComputerCtrl'
+    });
+  }])
 
-.controller('playGameCtrl',['$scope','$interval','saveResult','getResult',function($scope,$interval,saveResult,getResult) {
-  
-  $scope.choises = [];
-  $scope.message = '';
-  $scope.score = getResult();
-  
-  $scope.playAgain = function() {
+  .controller('computerVsComputerCtrl', ['$scope', '$interval', 'saveResult', 'getResult', function ($scope, $interval, saveResult, getResult) {
+    $scope.choises = [];
+    $scope.message = '';
+
+    $scope.actions = [
+      {
+        icon: '/components/img/paper.png',
+        name: 'Paper'
+      },
+      {
+        icon: '/components/img/rock.png',
+        name: 'Rock'
+      },
+      {
+        icon: '/components/img/scissors.png',
+        name: 'Scissors'
+      }
+    ]
+
+  $interval(function(){
+    $scope.randomChoice1 = Math.floor((Math.random()*$scope.actions.length));
+    $scope.randomChoice2 = Math.floor((Math.random()*$scope.actions.length));
+  },70);
+
+  $scope.compare = function(playerChoise, computerChoise){
+
+   $scope.playAgain = function() {
     $scope.choises = [];
     $scope.message = '';
   }
-
-  $scope.actions = [
-    {
-      icon: '/components/img/paper.png',
-      name: 'Paper'
-    },
-    {
-      icon: '/components/img/rock.png',
-      name: 'Rock'
-    },
-    {
-      icon: '/components/img/scissors.png',
-      name: 'Scissors'
-    }
-  ]
-
-  $interval(function(){
-    $scope.randomChoice = Math.floor((Math.random()*$scope.actions.length));
-  },70)
-
-  $scope.compare = function(playerChoise, computerChoise){
 
     $scope.choises.push(playerChoise);
     $scope.choises.push(computerChoise);
@@ -83,7 +82,6 @@ angular.module('RockPaperScissors.playGameCtrl', ['ngRoute'])
         }
 
     }
-      
-    saveResult($scope.score);
   }
-}]);
+
+  }]);

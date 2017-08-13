@@ -1,10 +1,18 @@
+<md-toolbar>
+    <md-button ng-href="#/startGame">Back</md-button>
+    <div class="score" layout="row" layout-align='center center'><i class="material-icons">star</i><span>{{score.result}}</span></div>
+        <div class="current-result">
+        <span>win: {{score.win}}</span></br>
+        <span>drawn: {{score.drawn}}</span></br>
+        <span>lose: {{score.lose}}</span> 
+    </div>
+</md-toolbar>
 <div layout='column' layout-align='center center'>
     <h1>{{message}}</h1>
     <!-- play again button -->
-    <md-button ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
     <!-- my choices-->
     <div layout='column' layout-align='center center' ng-if="choises.length===0">
-        <h2>My choice</h2>
+        <h2>Your choice</h2>
         <div layout='row' layout-align='center center'>
             <div ng-repeat="action in actions" class="choice-card">
                 <md-button ng-click='compare(action,actions[randomChoice])' class="game-card">
@@ -23,7 +31,7 @@
     <!--my choice-->
     <div ng-if="choises.length!==0" layout='row' layout-align='center center'>
         <div>
-            <h2>My choice</h2>
+            <h2>Your choice</h2>
             <md-button class="game-card">
                 <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
                 <div>{{choises[0].name}}</div>
@@ -37,10 +45,5 @@
             </md-button>
         </div>
     </div>
-    <div class="current-result">
-        <span>win: {{score.win}}</span></br>
-        <span>drawn: {{score.drawn}}</span></br>
-        <span>lose: {{score.lose}}</span> 
-    </div>
-    <div class="score" layout="row" layout-align='center center'><i class="material-icons">star</i><span>{{score.result}}</span></div>
+    <md-button class="md-raised" ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
 </div>

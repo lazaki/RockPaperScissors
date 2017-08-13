@@ -19,7 +19,16 @@ angular.module('RockPaperScissors.startGameCtrl', ['ngRoute'])
 .controller('startGameCtrl', ['$scope','$location','Game',function($scope,$location,Game) {
     
   $scope.chooseGameType = function(game) {
-    $location.path('/playGame').replace();
+    let location = '';
+    switch (game){
+      case 1:
+        location = 'PlayerVsComputer';
+      break;
+      case 2: 
+        location = 'ComputerVsComputer';
+        break;
+    }
+    $location.path('/'+location).replace();
     return Game.Types[game];
   } 
 
