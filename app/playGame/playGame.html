@@ -1,20 +1,40 @@
 
 <div layout='column' layout-align='center center'>
-    <h1>{{result}}</h1>
+    <h1>{{message}}</h1>
+    <!-- play again button -->
+    <md-button ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
+    <!-- my choices-->
     <h2>Your choise</h2>
-    <div layout='row' layout-align='center center'>
+    <div ng-if="choises.length===0" layout='row' layout-align='center center'>
         <div ng-repeat="action in actions">
-                <md-button ng-click='setAction(action, actions[a])'  class="game-card">
-                    <img src={{action.icon}} alt={{action.name}}>
-                    <div>{{action.name}}</div>
-                </md-button>
+            <md-button ng-click='compare(action,actions[randomChoice])' class="game-card">
+                <img ng-src="{{action.icon}}" alt="{{action.name}}">
+                <div>{{action.name}}</div>
+            </md-button>
+        </div> 
+    </div>
+    <!--my choice-->
+    <div ng-if="choises.length!==0" layout='row' layout-align='center center'>
+        <div>
+            <md-button class="game-card">
+                <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
+                <div>{{choises[0].name}}</div>
+            </md-button>
         </div> 
     </div>
     <h2>Computer choise</h2>
-    <md-button class="game-card">
-        <img src={{actions[a].icon}} alt={{actions[a].name}}>
-        <div>{{actions[a].name}}</div>
+     <!-- play my choices-->
+    <md-button ng-if="choises.length===0" class="game-card">
+        <img ng-src={{actions[randomChoice].icon}} alt={{actions[randomChoice].name}}>
+        <div>{{actions[randomChoice].name}}</div>
     </md-button>
+    <md-button ng-if="choises.length!==0" class="game-card">
+       <img ng-src={{choises[1].icon}} alt=src={{choises[1].name}}>
+        <div>{{choises[1].name}}</div>
+    </md-button>
+    
+    <div class="current-result">current result : win: {{score.win}} drawn: {{score.drawn}} lose: {{score.lose}}</div>
+    <div class="score" layout ="row" layout-align='center center'><i class="material-icons">star</i><span>{{score.result}}</span></div>
 </div>
 
 

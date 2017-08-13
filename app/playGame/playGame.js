@@ -9,7 +9,16 @@ angular.module('RockPaperScissors.playGameCtrl', ['ngRoute'])
   });
 }])
 
-.controller('playGameCtrl',['$scope','$interval',function($scope,$interval) {
+.controller('playGameCtrl',['$scope','$interval','saveResult','getResult',function($scope,$interval,saveResult,getResult) {
+  
+  $scope.choises = [];
+  $scope.message = '';
+  $scope.score = getResult();
+  
+  $scope.playAgain = function() {
+    $scope.choises = [];
+    $scope.message = '';
+  }
 
   $scope.actions = [
     {
@@ -20,38 +29,61 @@ angular.module('RockPaperScissors.playGameCtrl', ['ngRoute'])
       icon: '/components/img/rock.png',
       name: 'Rock'
     },
-        {
+    {
       icon: '/components/img/scissors.png',
       name: 'Scissors'
     }
   ]
 
   $interval(function(){
-    $scope.a = Math.floor((Math.random()*$scope.actions.length));
+    $scope.randomChoice = Math.floor((Math.random()*$scope.actions.length));
   },70)
 
-  $scope.setAction = function(playerAction, computerAction){
-     switch(playerAction) {
-        case computerAction:
-            $scope.result = 'Drawn'
-            break;
-        case $scope.actions[0]:
-          if(computerAction === $scope.actions[1]){
-              $scope.result = 'You win!'
-              break;
-          }
-        case $scope.actions[1]:
-          if(computerAction===$scope.actions[2]){
-              $scope.result = 'You win!'
-              break;
-          }
-        case $scope.actions[2]:
-          if (computerAction === $scope.actions[1]) {
-            $scope.result = 'You win!'
-            break;
-          }
-        default:
-          $scope.result = 'You lose!'
-    }   
+  $scope.compare = function(playerChoise, computerChoise){
+
+    $scope.choises.push(playerChoise);
+    $scope.choises.push(computerChoise);
+
+    
+    if(playerChoise===computerChoise){
+            $scope.message = 'Drawn';
+            $scope.score.drawn++;
+    }
+    else if(playerChoise === $scope.actions[0]) {
+        if(computerChoise === $scope.actions[1]) {
+          $scope.message = 'You win';
+          $scope.score.win++;
+          $scope.score.result+=20;
+        }else {
+          $scope.message = 'You lose';
+          $scope.score.lose++;
+           $scope.score.result-=10;
+        }
+    }
+    else if(playerChoise === $scope.actions[1]) {
+        if(computerChoise === $scope.actions[2]) {
+          $scope.message = 'You win';
+          $scope.score.win++;
+           $scope.score.result+=20;
+        }else {
+          $scope.message = 'You lose';
+          $scope.score.lose++;
+          $scope.score.result-=10;
+        }
+    }
+    else if(playerChoise === $scope.actions[2]) {
+        if(computerChoise === $scope.actions[0]) {
+          $scope.message = 'You win';
+          $scope.score.win++;
+           $scope.score.result+=20;
+        }else {
+          $scope.message = 'You lose';
+          $scope.score.lose++;
+          $scope.score.result-=10;
+        }
+
+    }
+      
+    saveResult($scope.score);
   }
 }]);
