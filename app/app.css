@@ -1,16 +1,27 @@
 /* app css stylesheet */
-
+body {
+    background:	#eaeaea;
+}
 .start-game-container {
   height: 100vh;
   width: 100vw;
-  background:	#eaeaea;
+
 }
+
+.start-game-container i {
+    font-size:70px;
+}
+
 
 .game-card {
   margin: 10px;
-  background: black;
+  background: #ffffff;
   height: 300px;
-  padding: 10px;
-  color: white;
+  color: 	#666666;
   width: 300px;
+}
+
+.game-card img {
+  width: 100%;
+  height:100%;
 }

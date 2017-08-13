@@ -4,8 +4,8 @@
 angular.module('RockPaperScissors', [
   'ngRoute',
   'ngMaterial',
-  'RockPaperScissors.startGame',
-  'RockPaperScissors.view2',
+  'RockPaperScissors.startGameCtrl',
+  'RockPaperScissors.playGameCtrl',
   'RockPaperScissors.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

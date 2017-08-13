@@ -1,4 +1,15 @@
-<div layout='row' layout-align = 'center center' class="start-game-container">
-    <div class="game-card">Computer vs Player</div>
-    <div class="game-card">Computer vs Computer</div>
+<div layout='column' layout-align = 'center center' class="start-game-container">
+    <h1>Choose game type</h1>
+    <div layout='row' layout-align = 'center center'>
+        <md-button ng-click='chooseGameType(1)'  layout='row' layout-align = 'center center' class="game-card">
+            <i class="material-icons">person</i>
+            vs
+            <i class="material-icons">computer</i>
+            
+        </md-button>
+        <md-button ng-click='chooseGameType(2)' layout='row' layout-align = 'center center' class="game-card">
+            <i class="material-icons">computer</i>
+            vs   <i class="material-icons">computer</i>
+        </md-button>
+    </div>
 </div>

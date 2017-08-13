@@ -1,0 +1,24 @@
+
+<div layout='column' layout-align='center center'>
+    <h1>{{result}}</h1>
+    <h2>Your choise</h2>
+    <div layout='row' layout-align='center center'>
+        <div ng-repeat="action in actions">
+                <md-button ng-click='setAction(action, actions[a])'  class="game-card">
+                    <img src={{action.icon}} alt={{action.name}}>
+                    <div>{{action.name}}</div>
+                </md-button>
+        </div> 
+    </div>
+    <h2>Computer choise</h2>
+    <md-button class="game-card">
+        <img src={{actions[a].icon}} alt={{actions[a].name}}>
+        <div>{{actions[a].name}}</div>
+    </md-button>
+</div>
+
+
+
+
+
+

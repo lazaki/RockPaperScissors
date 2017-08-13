@@ -1,14 +1,26 @@
 'use strict';
 
-angular.module('RockPaperScissors.startGame', ['ngRoute'])
+angular.module('RockPaperScissors.startGameCtrl', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/startGame', {
     templateUrl: 'startGame/startGame.html',
-    controller: 'startGame'
+    controller: 'startGameCtrl'
   });
 }])
 
-.controller('startGame', [function() {
+.constant('Game', {
+    Types: {
+        1: 'Computer to Computer',
+        2: 'Player to Computer',
+    }
+})
+
+.controller('startGameCtrl', ['$scope','$location','Game',function($scope,$location,Game) {
+    
+  $scope.chooseGameType = function(game) {
+    $location.path('/playGame').replace();
+    return Game.Types[game];
+  } 
 
 }]);
