@@ -27,13 +27,13 @@
         <h1>{{message}}</h1>
         <div layout='row' layout-align='center center'>
             <div layout='column' layout-align='center center'>
-                <h3>Your choice</h3>
+                <h3>{{computer1.name}}'s choice</h3>
                 <md-button class="game-card">
                     <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
                 </md-button>
             </div>
             <div layout='column' layout-align='center center'>
-                <h3>Computer choise</h3>
+                <h3>{{computer2.name}}'s choice</h3>
                 <md-button ng-if="choises.length!==0" class="game-card">
                     <img ng-src={{choises[1].icon}} alt={{choises[1].name}}>
                 </md-button>
