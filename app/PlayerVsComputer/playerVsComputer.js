@@ -30,7 +30,7 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
     saveResult($scope.score);
     $location.path('/StartGame').replace();
   }
-
+  
   $interval(function(){
     $scope.randomChoice = Math.floor((Math.random()*$scope.actions.length));
   },70)
