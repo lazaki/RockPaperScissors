@@ -90,6 +90,7 @@ h3 {
     .game-card {
       width: 100px;
       height: 100px;
+      margin: 5px;
     }
 
     .start-game-container .game-card {
