@@ -36,6 +36,11 @@ h3 {
   transition: all .2s ease-in-out;
 }
 
+.game-card img {
+  width: 100%;
+  height:100%;
+}
+
 .choice-card  {
    transition: all .2s ease-in-out;
 }
@@ -44,11 +49,6 @@ h3 {
    -ms-transform: scale(1.1); /* IE 9 */
     -webkit-transform: scale(1.1); /* Safari */
     transform: scale(1.1);
-}
-
-.game-card img {
-  width: 100%;
-  height:100%;
 }
 
 .actions {
@@ -72,6 +72,25 @@ h3 {
 .heroes-card img {
   width: 60%;
   height: 60%;
+}
+
+
+.heroes-card:hover span {
+  display: block;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.20);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+}
+
+.heroes-card span {
+  display: none;
 }
 
 .player-image {
