@@ -1,0 +1,9 @@
+<div layout='column' layout-align = 'center center' layout-wrap class="heroes-page">
+    <h3>Choose your hero</h3>
+    <div layout='row' layout-align = 'space-around center'>
+        <md-button ng-click="choseHero(hero)" layout='column' layout-align = 'center center' ng-repeat="hero in heroes" class="heroes-card">
+            <span>{{hero.name}}</span>
+            <img ng-src={{hero.image}} alt="{{hero.name}}">
+        </md-button>
+    </div>
+</div>

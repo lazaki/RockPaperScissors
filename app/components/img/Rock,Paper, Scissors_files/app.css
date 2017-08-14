@@ -19,6 +19,7 @@ h2 {
 }
 
 .result-bar {
+  margin: 0px 5%;
   background: rgba(0,0,0,0.20);
   padding: 10px;
 }
@@ -56,10 +57,16 @@ h2 {
   height:100%;
 }
 
-.actions {
+.current-result {
   position: absolute;
-  bottom: 0px;
-  width: 100%;
+  left: 10px;
+  top: 10px;
+}
+
+.score {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .heroes-page {

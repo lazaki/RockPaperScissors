@@ -1,40 +1,47 @@
-<md-toolbar>
-    <md-button ng-href="#/startGame">Back</md-button>
-</md-toolbar>
+<div class="result-bar" layout='row' layout-align='space-around center'>
+    <div layout='row' layout-align='center center'>
+        <img class="player-image" ng-src="{{computer1.image}}" alt="{{computer1.name}}">
+        <span>{{score.win}}</span>
+    </div>
+    <span>VS</span>
+    <div layout='row' layout-align='center center'>
+        <img class="player-image" ng-src="{{computer2.image}}" alt="{{computer2.name}}">
+        <span>{{score.lose}}</span></br>
+    </div>
+</div>
 <div layout='column' layout-align='center center'>
-    <md-button ng-if="choises.length===0" ng-click='compare(actions[randomChoice1],actions[randomChoice2])'>Stop</md-button>
-    <h1>{{message}}</h1>
-    <!-- play again button -->
-    <!-- my choices-->
+    <md-button class="md-raised" ng-if="choises.length===0" ng-click="choose(actions[randomChoice1],actions[randomChoice2])">Stop</md-button>
     <div layout='column' layout-align='center center' ng-if="choises.length===0">
-        <h2>Computer1</h2>
+        <h3>{{computer1.name}}'s choice</h2>
         <md-button class="game-card">
             <img ng-src={{actions[randomChoice1].icon}} alt={{actions[randomChoice1].name}}>
-            <div>{{actions[randomChoice1].name}}</div>
         </md-button>
         <!-- play my choices-->
-        <h2>Computer2</h2>
+        <h3>{{computer2.name}}'s choice</h2>
         <md-button class="game-card">
             <img ng-src={{actions[randomChoice2].icon}} alt={{actions[randomChoice2].name}}>
-            <div>{{actions[randomChoice2].name}}</div>
         </md-button>
     </div>
     <!--my choice-->
-    <div ng-if="choises.length!==0" layout='row' layout-align='center center'>
-        <div>
-            <h2>Computer1 choice</h2>
-            <md-button class="game-card">
-                <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
-                <div>{{choises[0].name}}</div>
-            </md-button>
-        </div>
-        <div>
-            <h2>Computer2 choise</h2>
-            <md-button ng-if="choises.length!==0" class="game-card">
-                <img ng-src={{choises[1].icon}} alt=src={{choises[1].name}}>
-                <div>{{choises[1].name}}</div>
-            </md-button>
+    <div class="md-raised" ng-if="choises.length!==0" layout='column' layout-align='center center'>
+        <h1>{{message}}</h1>
+        <div layout='row' layout-align='center center'>
+            <div layout='column' layout-align='center center'>
+                <h3>Your choice</h3>
+                <md-button class="game-card">
+                    <img ng-src="{{choises[0].icon}}" alt={{choises[0].name}}>
+                </md-button>
+            </div>
+            <div layout='column' layout-align='center center'>
+                <h3>Computer choise</h3>
+                <md-button ng-if="choises.length!==0" class="game-card">
+                    <img ng-src={{choises[1].icon}} alt={{choises[1].name}}>
+                </md-button>
+            </div>
         </div>
     </div>
-     <md-button class="md-raised" ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
+    <md-button class="md-raised" ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
+</div>
+<div class="actions">
+    <md-button layout='row' layout-align='center center' ng-click="closeGame()"><i class="material-icons">close</i>Close</md-button>
 </div>

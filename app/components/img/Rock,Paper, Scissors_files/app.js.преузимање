@@ -59,8 +59,8 @@ angular.module('RockPaperScissors', [
           return 2;
         }
       }
-      else if (firstChoise.name === actions[2].name) {
-        if (secondChoise.name === actions[0].name) {
+      else if (firstChoise.name === actions[2]) {
+        if (secondChoise.name === actions[0]) {
           return 1;
         } else {
           return 2;
@@ -99,7 +99,7 @@ angular.module('RockPaperScissors', [
       ]
     }
   }])
-  .factory('getActions', [function () {
+  .factory('getAction', [function () {
     return function () {
       return [
         {

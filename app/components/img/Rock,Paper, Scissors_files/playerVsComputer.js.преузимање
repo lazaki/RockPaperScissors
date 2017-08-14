@@ -9,7 +9,7 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
   });
 }])
 
-.controller('playerVsComputerCtrl',['$scope','$interval','$location','saveResult','getResult','getActions','compareResult','getHero','getAntiHero',function($scope,$interval,$location,saveResult,getResult,getActions,compareResult,getHero,getAntiHero) {
+.controller('playerVsComputerCtrl',['$scope','$interval','saveResult','getResult','getActions','compareResult','getHero','getAntiHero',function($scope,$interval,saveResult,getResult,getActions,compareResult,getHero,getAntiHero) {
   
   $scope.choises = [];
   $scope.message = '';
@@ -21,14 +21,6 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
   $scope.playAgain = function() {
     $scope.choises = [];
     $scope.message = '';
-  }
-
-  $scope.closeGame = function() {
-    $scope.score.win = 0;
-    $scope.score.lose = 0;
-    $scope.score.drawn = 0;
-    saveResult($scope.score);
-    $location.path('/StartGame').replace();
   }
 
   $interval(function(){
@@ -46,10 +38,12 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
       case 1:
         $scope.message = 'You win';
         $scope.score.win++;
+        $scope.score.result+=20;
         break;
       case 2:
         $scope.message = 'You lose';
         $scope.score.lose++;
+        $scope.score.result-=10;
         break;
     }
     saveResult($scope.score);

@@ -9,22 +9,24 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
     });
   }])
 
-  .controller('computerVsComputerCtrl', ['$scope', '$interval','$location', 'saveResult', 'getResult','compareResult','getActions','getHero','getAntiHero', function ($scope, $interval,$location, saveResult, getResult,compareResult, getActions, getHero, getAntiHero) {
-    
+  .controller('computerVsComputerCtrl', ['$scope', '$interval', 'saveResult', 'getResult','compareResult', function ($scope, $interval, saveResult, getResult,compareResult) {
     $scope.choises = [];
     $scope.message = '';
-    $scope.computer1 = getHero();
-    $scope.computer2 = getAntiHero();
-    $scope.actions = getActions();
-    $scope.score = getResult();
 
-    $scope.closeGame = function() {
-      $scope.score.win = 0;
-      $scope.score.lose = 0;
-      $scope.score.drawn = 0;
-      saveResult($scope.score);
-      $location.path('/StartGame').replace();
-  }
+    $scope.actions = [
+      {
+        icon: 'components/img/paper.png',
+        name: 'Paper'
+      },
+      {
+        icon: 'components/img/rock.png',
+        name: 'Rock'
+      },
+      {
+        icon: 'components/img/scissors.png',
+        name: 'Scissors'
+      }
+    ]
 
   $interval(function(){
     $scope.randomChoice1 = Math.floor((Math.random()*$scope.actions.length));
@@ -45,12 +47,12 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
         $scope.score.drawn++;
         break;
       case 1:
-        $scope.message = $scope.computer1.name+ ' win!';
+        $scope.message = 'Computer 1 win';
         $scope.score.win++;
         $scope.score.result+=20;
         break;
       case 2:
-        $scope.message = $scope.computer2.name+ ' win!';
+        $scope.message = 'Computer 2 win';
         $scope.score.lose++;
         $scope.score.result-=10;
         break;
