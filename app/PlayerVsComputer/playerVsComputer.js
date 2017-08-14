@@ -1,43 +1,56 @@
 'use strict';
 
 angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
-
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/PlayerVsComputer', {
     templateUrl: 'PlayerVsComputer/playerVsComputer.html',
     controller: 'playerVsComputerCtrl'
   });
 }])
-
-.controller('playerVsComputerCtrl',['$scope','$interval','$location','saveResult','getResult','getActions','compareResult','getHero','getAntiHero',function($scope,$interval,$location,saveResult,getResult,getActions,compareResult,getHero,getAntiHero) {
+.controller('playerVsComputerCtrl',['$scope','$interval','$location','saveResult','getResult','getActions','compareResult','getHero',function($scope,$interval,$location,saveResult,getResult,getActions,compareResult,getHero) {
   
+  // player and computer choicesc init
   $scope.choises = [];
+  // win, lose, drawn message
   $scope.message = '';
+  //get result from localstorage
   $scope.score = getResult();
-  $scope.player = getHero();
-  $scope.computer = getAntiHero();
+  //get player hero
+  $scope.player = getHero()[0];
+  //get computer hero
+  $scope.computer = getHero()[1];
+  //get potential action types
   $scope.actions = getActions();
 
+  //reinitial game
   $scope.playAgain = function() {
     $scope.choises = [];
     $scope.message = '';
   }
 
+  //close game and reset result
   $scope.closeGame = function() {
+    //reset result
     $scope.score.win = 0;
     $scope.score.lose = 0;
     $scope.score.drawn = 0;
+    //save result to local storage
     saveResult($scope.score);
+    //go to app start
     $location.path('/StartGame').replace();
   }
-  
+
+  //changin radnom choices on GUI
   $interval(function(){
     $scope.randomChoice = Math.floor((Math.random()*$scope.actions.length));
   },70)
 
+  //chose player and computer action
   $scope.choose = function(playerChoise,computerChoise){
+    //push choices to array
     $scope.choises.push(playerChoise);
     $scope.choises.push(computerChoise);
+    //compare result and provide action for different situation
     switch(compareResult(playerChoise,computerChoise,$scope.actions)) {
       case 0:
         $scope.message = 'Drawn';
@@ -52,6 +65,7 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
         $scope.score.lose++;
         break;
     }
+    //saving result to local storage
     saveResult($scope.score);
   }
 }]);

@@ -61,28 +61,43 @@ angular.module('RockPaperScissors', [
         {
           name: 'Red',
           image: 'components/img/red.png',
-          color: 'red'
+          type: 'hero'
         },
         {
           name: 'Hal',
           image: 'components/img/hal.png',
-          color: 'black'
+          type: 'hero'
         },
         {
           name: 'Chuck',
           image: 'components/img/chunk.png',
-          color: 'yellow'
+          type: 'hero'
         },
         {
           name: 'The Blues',
           image: 'components/img/blues.png',
-          color: 'blue'
+          type: 'hero'
         },
         {
           name: 'Stella',
           image: 'components/img/rose.png',
-          color: 'blue'
+          type: 'hero'
         },
+        {
+          name: 'King',
+          image: 'components/img/king.png',
+          type: 'villain'
+        },
+        {
+          name: 'Hiten',
+          image: 'components/img/hiten.png',
+          type: 'villain'
+        },
+        {
+          name: 'Loser',
+          image: 'components/img/loser.png',
+          type: 'villain'
+        }
       ]
     }
   }])
@@ -105,36 +120,15 @@ angular.module('RockPaperScissors', [
     }
   }])
   .factory('setHero', [function () {
-    return function (hero) {
-      let antiHeroes = [
-        {
-          name: 'King',
-          image: 'components/img/king.png',
-          color: 'green'
-        },
-        {
-          name: 'Hiten',
-          image: 'components/img/hiten.png',
-          color: 'green'
-        },
-        {
-          name: 'Loser',
-          image: 'components/img/loser.png',
-          color: 'green'
-        }
-      ];
+    return function (hero, villain) {
       localStorage.setItem('hero', JSON.stringify(hero));
-      localStorage.setItem('antihero', JSON.stringify(antiHeroes[Math.floor((Math.random() * antiHeroes.length))]))
+      localStorage.setItem('villain', JSON.stringify(villain));
+      return [hero,villain];
     }
   }])
   .factory('getHero', [function () {
-    return function (hero) {
-      return JSON.parse(localStorage.getItem('hero'));
-    }
-  }])
-  .factory('getAntiHero', [function () {
-    return function (hero) {
-      return JSON.parse(localStorage.getItem('antihero'));
+    return function () {
+      return [JSON.parse(localStorage.getItem('hero')),JSON.parse(localStorage.getItem('villain'))];
     }
   }]);
 

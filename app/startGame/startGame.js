@@ -16,7 +16,7 @@ angular.module('RockPaperScissors.startGameCtrl', ['ngRoute'])
     }
 })
 
-.controller('startGameCtrl', ['$scope','$location','Game',function($scope,$location,Game) {
+.controller('startGameCtrl', ['$scope','$location','Game','setHero','getHeroes',function($scope,$location,Game,setHero,getHeroes) {
   $scope.chooseGameType = function(game) {
     let location = '';
     switch (game){
@@ -25,6 +25,9 @@ angular.module('RockPaperScissors.startGameCtrl', ['ngRoute'])
       break;
       case 2: 
         location = 'ComputerVsComputer';
+        let heroes = getHeroes();
+        //set hero and villain
+        setHero(heroes[Math.floor((Math.random()*heroes.length))],heroes[Math.floor((Math.random()*heroes.length))]);
         break;
     }
     $location.path('/'+location).replace();
