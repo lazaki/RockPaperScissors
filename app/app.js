@@ -27,21 +27,8 @@ angular.module('RockPaperScissors', [
     }
   }])
   .factory('compareResult', [function () {
-    let actions = [
-      {
-        icon: 'components/img/paper.png',
-        name: 'Paper'
-      },
-      {
-        icon: 'components/img/rock.png',
-        name: 'Rock'
-      },
-      {
-        icon: 'components/img/scissors.png',
-        name: 'Scissors'
-      }
-    ]
-    return function (firstChoise, secondChoise) {
+
+    return function (firstChoise, secondChoise, actions) {
       if (firstChoise === secondChoise) {
         return 0;
       }

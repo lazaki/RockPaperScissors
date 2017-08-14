@@ -39,7 +39,7 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
   $scope.choose = function(computer1Choice,computer2Choice){
     $scope.choises.push(computer1Choice);
     $scope.choises.push(computer2Choice);
-    switch(compareResult(computer1Choice,computer2Choice)) {
+    switch(compareResult(computer1Choice,computer2Choice,$scope.actions)) {
       case 0:
         $scope.message = 'Drawn';
         $scope.score.drawn++;
