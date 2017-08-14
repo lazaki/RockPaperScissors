@@ -122,6 +122,9 @@ h3 {
       height: 100px;
       margin: 3px;
     }
+    button {
+      text-align: center;
+    }
 
     .full-width .game-card {
       width: 170px;
