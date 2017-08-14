@@ -84,6 +84,9 @@ h3 {
     span {
       font-size: 8px;
     }
+    h3 {
+      font-size: 14px;
+    }
     .game-card {
       width: 100px;
       height: 100px;
