@@ -1,18 +1,13 @@
 /* app css stylesheet */
+
+/* general setups */
 body {
     background:	#eaeaea;
 }
-
-h2 {
+h3 {
   text-align: center;
 }
 
-
-.start-game-container {
-  height: 100vh;
-  width: 100vw;
-
-}
 
 .start-game-container i {
     font-size:70px;
@@ -82,4 +77,26 @@ h2 {
 .player-image {
   width: 50px;
   height: 50px;
+}
+
+/* media query */
+@media screen and (max-width: 900px) {
+    span {
+      font-size: 8px;
+    }
+    .game-card {
+      width: 100px;
+      height: 100px;
+    }
+
+    .start-game-container .game-card {
+      width: 170px;
+      height: 170px;
+    }
+
+    .heroes-card { 
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+    }
 }
