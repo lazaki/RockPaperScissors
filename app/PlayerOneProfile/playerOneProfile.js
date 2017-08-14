@@ -8,12 +8,12 @@ angular.module('RockPaperScissors.playerOneProfileCtrl', ['ngRoute'])
     controller: 'playerOneProfileCtrl'
   });
 }])
-.controller('playerOneProfileCtrl', ['$scope','$location','getHeroes','setHero',function($scope,$location,getHeroes,setHero) {
-      $scope.heroes = getHeroes().filter((hero)=>hero.type!='villain');
-      $scope.villains = getHeroes().filter((hero)=>hero.type==='villain');
+.controller('playerOneProfileCtrl', ['$scope','$location','MainFactory',function($scope,$location,MainFactory) {
+      $scope.heroes = MainFactory.getHeroes().filter((hero)=>hero.type!='villain');
+      $scope.villains = MainFactory.getHeroes().filter((hero)=>hero.type==='villain');
       $scope.choseHero = function(hero) {
           let villain = $scope.villains[Math.floor((Math.random() * $scope.villains.length))];
-          setHero(hero,villain);
+          MainFactory.setHero(hero,villain);
           $location.path('/PlayerVsComputer').replace();
       }
 }]);

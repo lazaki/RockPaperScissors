@@ -7,27 +7,27 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
       controller: 'computerVsComputerCtrl'
     });
   }])
-  .controller('computerVsComputerCtrl', ['$scope','$interval','$location','saveResult', 'getResult','compareResult','getActions','getHero','getHeroes','setHero', function ($scope, $interval,$location, saveResult, getResult,compareResult, getActions, getHero, getHeroes, setHero) {
+  .controller('computerVsComputerCtrl', ['$scope','$interval','$location','MainFactory', function ($scope, $interval,$location,MainFactory) {
     //initialise choises to empty array
     $scope.choises = [];
     //message set to empty string
     $scope.message = '';
 
     //get heroes
-    $scope.computer1 = getHero()[0];
-    $scope.computer2 = getHero()[1];
+    $scope.computer1 = MainFactory.getHero()[0];
+    $scope.computer2 = MainFactory.getHero()[1];
 
     //get potential actions
-    $scope.actions = getActions();
+    $scope.actions = MainFactory.getActions();
     //get result from local storage
-    $scope.score = getResult();
+    $scope.score = MainFactory.getResult();
 
     //close game and reinitialize
     $scope.closeGame = function() {
       $scope.score.win = 0;
       $scope.score.lose = 0;
       $scope.score.drawn = 0;
-      saveResult($scope.score);
+      MainFactory.saveResult($scope.score);
       $location.path('/StartGame').replace();
   }
 
@@ -47,7 +47,7 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
   $scope.choose = function(computer1Choice,computer2Choice){
     $scope.choises.push(computer1Choice);
     $scope.choises.push(computer2Choice);
-    switch(compareResult(computer1Choice,computer2Choice,$scope.actions)) {
+    switch(MainFactory.compareResult(computer1Choice,computer2Choice,$scope.actions)) {
       case 0:
         $scope.message = 'Drawn';
         $scope.score.drawn++;
@@ -61,7 +61,7 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
         $scope.score.lose++;
         break;
     }
-    saveResult($scope.score);
+     MainFactory.saveResult($scope.score);
   }
 
   }]);
