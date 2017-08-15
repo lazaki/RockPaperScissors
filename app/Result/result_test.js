@@ -1,14 +1,14 @@
 'use strict';
 
-describe('RockPaperScissors.startGame module', function() {
+describe('RockPaperScissors.result module', function() {
 
-  beforeEach(module('RockPaperScissors.startGame'));
+  beforeEach(module('RockPaperScissors.result'));
 
-  describe('startGame controller', function(){
+  describe('result controller', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
-      var startGame = $controller('startGame');
+      var startGame = $controller('resultCtrl');
       expect(startGame).toBeDefined();
     }));
 

@@ -2,7 +2,7 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
-describe('my app', function() {
+describe('RockPaperScissors', function() {
 
 
   it('should automatically redirect to /startGame when location hash/fragment is empty', function() {
@@ -14,13 +14,13 @@ describe('my app', function() {
   describe('startGame', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/startGame');
+      browser.get('index.html#/startGame');
     });
 
 
     it('should render startGame when user navigates to /startGame', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
+        toMatch(/sartGame/);
     });
 
   });
@@ -29,7 +29,7 @@ describe('my app', function() {
   describe('PlayerVsComputer', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/PlayerVsComputer');
+      browser.get('index.html#/PlayerVsComputer');
     });
 
 
