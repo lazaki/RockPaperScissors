@@ -20,16 +20,12 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
     //get potential actions
     $scope.actions = MainFactory.getActions();
     //get result from local storage
-    $scope.score = MainFactory.getResult();
+    $scope.score = MainFactory.getScore();
 
     //close game and reinitialize
     $scope.closeGame = function() {
-      $scope.score.win = 0;
-      $scope.score.lose = 0;
-      $scope.score.drawn = 0;
-      MainFactory.saveResult($scope.score);
-      $location.path('/StartGame').replace();
-  }
+      $location.path('/Result').replace();
+    }
 
   //get random values 
   $interval(function(){
@@ -61,7 +57,7 @@ angular.module('RockPaperScissors.computerVsComputerCtrl', ['ngRoute'])
         $scope.score.lose++;
         break;
     }
-     MainFactory.saveResult($scope.score);
+     MainFactory.saveScore($scope.score);
   }
 
   }]);

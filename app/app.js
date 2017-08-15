@@ -8,6 +8,7 @@ angular.module('RockPaperScissors', [
   'RockPaperScissors.playerVsComputerCtrl',
   'RockPaperScissors.computerVsComputerCtrl',
   'RockPaperScissors.playerOneProfileCtrl',
+  'RockPaperScissors.resultCtrl',
   'RockPaperScissors.version'
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
@@ -15,14 +16,14 @@ angular.module('RockPaperScissors', [
   }])
   .factory('MainFactory', [function () {
     return {
-      saveResult: function (res) {
-        localStorage.setItem('results', JSON.stringify(res));
+      saveScore: function (res) {
+        localStorage.setItem('score', JSON.stringify(res));
       },
-      getResult: function () {
-        let score = JSON.parse(localStorage.getItem('results'));
+      getScore: function () {
+        let score = JSON.parse(localStorage.getItem('score'));
         if (score === null) {
-          return score = { win: 0, drawn: 0, lose: 0, result: 0 }
-        } else return score;
+          return score = { win: 0, drawn: 0, lose: 0 , highScore: 0}
+        } return score;
       },
       compareResult: function (firstChoise, secondChoise, actions) {
         if (firstChoise === secondChoise) {
@@ -31,23 +32,19 @@ angular.module('RockPaperScissors', [
         else if (firstChoise.name === actions[0].name) {
           if (secondChoise.name === actions[1].name) {
             return 1;
-          } else {
-            return 2;
-          }
+          } return 2;
         }
         else if (firstChoise.name === actions[1].name) {
           if (secondChoise.name === actions[2].name) {
             return 1;
-          } else {
-            return 2;
-          }
+          } return 2;
+          
         }
         else if (firstChoise.name === actions[2].name) {
           if (secondChoise.name === actions[0].name) {
             return 1;
-          } else {
-            return 2;
-          }
+          }return 2;
+      
         }
       },
       getHeroes: function () {

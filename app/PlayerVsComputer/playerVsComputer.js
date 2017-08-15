@@ -14,7 +14,7 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
   // win, lose, drawn message
   $scope.message = '';
   //get result from localstorage
-  $scope.score = MainFactory.getResult();
+  $scope.score = MainFactory.getScore();
   //get player hero
   $scope.player = MainFactory.getHero()[0];
   //get computer hero
@@ -30,14 +30,8 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
 
   //close game and reset result
   $scope.closeGame = function() {
-    //reset result
-    $scope.score.win = 0;
-    $scope.score.lose = 0;
-    $scope.score.drawn = 0;
-    //save result to local storage
-    MainFactory.saveResult($scope.score);
-    //go to app start
-    $location.path('/StartGame').replace();
+    //go to result page
+    $location.path('/Result').replace();
   }
 
   //changin radnom choices on GUI
@@ -47,6 +41,7 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
 
   //chose player and computer action
   $scope.choose = function(playerChoise,computerChoise){
+
     //push choices to array
     $scope.choises.push(playerChoise);
     $scope.choises.push(computerChoise);
@@ -65,7 +60,12 @@ angular.module('RockPaperScissors.playerVsComputerCtrl', ['ngRoute'])
         $scope.score.lose++;
         break;
     }
+      
+    var currentScore = $scope.score.win - $scope.score.lose;
+    if(currentScore>$scope.score.highScore) {
+      $scope.score.highScore = currentScore;
+    }
     //saving result to local storage
-    MainFactory.saveResult($scope.score);
+    MainFactory.saveScore($scope.score);
   }
 }]);

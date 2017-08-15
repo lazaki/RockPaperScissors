@@ -47,6 +47,7 @@
     </div>
     <md-button class="md-raised" ng-if="choises.length!==0" ng-click='playAgain()'>Play again</md-button>
 </div>
-<div class="actions">
-    <md-button  layout='row' layout-align='center center' ng-click="closeGame()"><i class="material-icons">close</i>Close</md-button>
+<div class="actions" layout='row' layout-align='space-between center'>
+    <md-button  layout='row' layout-align='center center' ng-click="closeGame()"><i class="material-icons">exit_to_app</i>End game</md-button>
+    <div><span>High score </span>{{score.highScore}}</div>
 </div>

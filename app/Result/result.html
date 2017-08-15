@@ -1,0 +1,20 @@
+<div layout='column' layout-align = 'center center' class="full-width">
+    <h3>{{message}}</h3>
+    <div layout='row' layout-align = 'space-around center' class="game-result">
+        <div layout='column' layout-align = 'center center' ng-repeat="player in players" >
+            <img ng-class="winnerClass(player)" ng-src="{{player.image}}" alt="player.name">
+            <span>{{player.name}}</span>
+        </div>
+    </div>
+    <div layout='row' layout-align = 'space-around center' class="game-result">
+        <div layout='column' layout-align = 'center center'>
+            <h3>{{score.win}}</h3>
+        </div>
+        <div layout='column' layout-align = 'center center'>
+            <h3>{{score.lose}}</h3>
+        </div>
+    </div>
+    <div layout='row' layout-align = 'space-around center'>
+        <md-button class="md-raised" ng-click='endGame()'>Exit</md-button>
+    </div>
+</div>
