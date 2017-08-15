@@ -1,4 +1,4 @@
-# `Rock, Paper, Scissors` AngryBirds editions
+# `Rock, Paper, Scissors AngryBirds editions` 
 # Start Game
 You can choose two game types:
   Player Vs Computer
