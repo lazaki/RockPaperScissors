@@ -1,19 +1,32 @@
-# `Rock, Paper, Scissors AngryBirds editions` 
-##  Start Game
+# Rock, Paper, Scissors
 
-##You can choose two game types:
+Waste an hour having fun
 
-*Player Vs Computer
-*Computer Vs Computer
+## Choose game type
 
-## Player vs Computer
-Choose the hero and play vs computer random villain
-You choose the action in each game and hit the computers random choose
-In this game mode your high score is stored
+* Player vs Computer
+* Computer vs Computer
+### Player vs Computer
 
-## Computer vs Computer
-Computer automaticaly choose the hero and the villain
-You just stop the game 
+* Choose your favorite AngryBirds hero
+* Play vs pig's villains wich computer automaticaly choose
+* Your high score is stored
+### Computer vs Computer
 
-## Enjoy in game
+* Computer automaticaly choose the hero and the villain
+* You just stop the game and see who win
+
+### End game
+
+* See which hero wins the game
+* Exit from the game
+
+### End game
+
+* See which hero wins the game
+* Exit from the game
+
+## Author
+
+* **Lazar Djurdjevic** - [Rock Paper Scissors](https://lazaki.github.io/RockPaperScissors/app/#/)
 
