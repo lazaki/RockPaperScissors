@@ -21,12 +21,8 @@ Waste an hour having fun
 * See which hero wins the game
 * Exit from the game
 
-### End game
-
-* See which hero wins the game
-* Exit from the game
 
 ## Author
 
-* **Lazar Djurdjevic** - [Rock Paper Scissors](https://lazaki.github.io/RockPaperScissors/app/#/)
+* **Lazar Djurdjevic** -Enjoy- [Rock Paper Scissors](https://lazaki.github.io/RockPaperScissors/app/#/)
 
