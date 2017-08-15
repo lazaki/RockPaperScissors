@@ -24,5 +24,5 @@ Waste an hour having fun
 
 ## Author
 
-* **Lazar Djurdjevic** -Enjoy- [Rock Paper Scissors](https://lazaki.github.io/RockPaperScissors/app/#/)
+**Lazar Djurdjevic** -Enjoy- [Rock Paper Scissors](https://lazaki.github.io/RockPaperScissors/app/#/)
 
