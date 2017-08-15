@@ -1,7 +1,7 @@
 # `Rock, Paper, Scissors AngryBirds editions` 
 ##  Start Game
 
-###You can choose two game types:
+##You can choose two game types:
 
 *Player Vs Computer
 *Computer Vs Computer
